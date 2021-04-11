@@ -1,0 +1,13 @@
+
+.content {
+  background-color: cornflowerblue;
+  /*width: 70%;*/
+}
+
+.content__img {
+  width: 100%;
+}
+
+.item {
+  color: greenyellow;
+}

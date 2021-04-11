@@ -1,4 +1,5 @@
 import React from "react";
+import s from './Header.module.css';
 
 
 type HeaderType = {
@@ -6,8 +7,8 @@ type HeaderType = {
 
 const Header: React.FC<HeaderType> = (props) => {
     return (
-        <header className='header'>
-            <h1></h1>
+        <header className={s.header}>
+            <h1>sdfsdf</h1>
         </header>
     )
 }

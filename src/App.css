@@ -3,32 +3,12 @@
   margin: 0 auto;
 }
 
-.header {
-  background-color: green;
-}
 
-.header img {
-  /*width: 314px;*/
-  /*height: 160px;*/
-}
 
 .con {
   display: flex;
 
 }
 
-.nav {
-  background-color: burlywood;
-  width: 30%;
-  height: 100%;
-}
 
 
-.content {
-  background-color: cornflowerblue;
-  /*width: 70%;*/
-}
-
-.content__img {
-  width: 100%;
-}
