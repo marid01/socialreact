@@ -1,14 +1,16 @@
 .app-wrapper {
-  width: 1200px;
-  margin: 0 auto;
+    width: 1200px;
+    margin: 0 auto;
 }
-
 
 
 .con {
-  display: flex;
+    display: flex;
 
 }
 
+.app-wrapper-content {
+    background-color: green;
 
 
+}
