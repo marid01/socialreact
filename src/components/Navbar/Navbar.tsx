@@ -5,14 +5,14 @@ import classes from './Navbar.module.css'
 type NavType = {
 }
 
-const Nav: React.FC<NavType> = (props) => {
+function Nav() {
     return (
         <nav className={classes.nav}>
             <div className={classes.item}>
-                <a>Profile</a>
+                <a href="/profile">Profile</a>
             </div>
             <div className={classes.item}>
-                <a>Messages</a>
+                <a href="/dialogs">Messages</a>
             </div>
             <div className={classes.item}>
                 <a>News</a>
