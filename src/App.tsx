@@ -14,7 +14,7 @@ function App() {
         <BrowserRouter>
         <div className="app-wrapper">
             <Header/>
-            <div className='con'>
+            <div className="con">
                 <Nav/>
                     <div className='app-wrapper-content'>
                         <Route path={"/dialogs"} component={Dialogs}/>

@@ -1,6 +1,4 @@
-import s from './Dialogs.module.css'
-
-function Settings(props: any) {
+function Settings() {
     return (
         <div>
             Settings
@@ -8,4 +6,4 @@ function Settings(props: any) {
     )
 }
 
-export default Settings
+export default Settings;
