@@ -24,6 +24,13 @@ function Dialogs(props: any) {
         {id: 6, name: 'Виктор'},
     ]
 
+    let messagesData = [
+        {id: 1, message: 'Hi'},
+        {id: 2, message: 'How is your it?'},
+        {id: 3, message: 'I\'m fine'},
+        {id: 4, message: 'How are you?'},
+    ]
+
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItems}>
@@ -36,10 +43,10 @@ function Dialogs(props: any) {
 
             </div>
             <div className={s.messages}>
-                <Message message="Hi" />
-                <Message message="How is your it?" />
-                <Message message="I'm fine" />
-                <Message message="How are you?" />
+                <Message message={messagesData[0].message} />
+                <Message message={messagesData[1].message} />
+                <Message message={messagesData[2].message} />
+                <Message message={messagesData[3].message} />
             </div>
         </div>
 
