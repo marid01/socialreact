@@ -16,7 +16,7 @@ function Message(props: any) {
 
 function Dialogs(props: any) {
     let dialogs = [
-        {id: 1, name: 'Света'},
+        {id: 1, name: 'Наталья'},
         {id: 2, name: 'Игорь'},
         {id: 3, name: 'Иван'},
         {id: 4, name: 'Петя'},
