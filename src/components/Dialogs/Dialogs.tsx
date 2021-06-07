@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 import {NavLink} from 'react-router-dom'
 import s from './Dialogs.module.css'
 
@@ -15,6 +15,7 @@ function Message(props: any) {
 }
 
 function Dialogs(props: any) {
+<<<<<<< HEAD
     let dialogs = [
         {id: 1, name: 'Наталья'},
         {id: 2, name: 'Игорь'},
@@ -29,6 +30,9 @@ function Dialogs(props: any) {
         {id: 3, message: 'I\'m fine'},
         {id: 4, message: 'How are you?'},
     ]
+=======
+
+>>>>>>> 040b978cd5da9040a4ea4576eccf52ad561cc17d
 
     let dialogsElements = dialogs.map(d => <DialogItem name={d.name} id={d.id}/>)
 
