@@ -8,6 +8,7 @@ function ProfileInfo(props: any) {
            </div>
             <div>
                 ava + description
+
             </div>
         </div>
     )
