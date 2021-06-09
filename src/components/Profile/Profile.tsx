@@ -1,15 +1,21 @@
 import s from './Dialogs.module.css'
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./Profileinfo/ProfileInfo";
+import { ProfilePageType} from "../../redux/state";
 
-function Profile(props: any) {
 
 
+type PropsType = {
+    profilePage:ProfilePageType
+}
+
+
+function Profile(props: PropsType) {
 
     return (
         <div>
            <ProfileInfo />
-            <MyPosts />
+            <MyPosts posts={props.profilePage.posts}/>
         </div>
     )
 }
