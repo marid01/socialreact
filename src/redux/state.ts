@@ -70,20 +70,6 @@ let store = {
         this._callSubscriber = observer
     },
 
-    _addPost (postMessage: string) {
-        let newPost: PostType = {
-            id: 5,
-            message: this._state.profilePage.newPostText,
-            likesCount: 0
-        };
-        this._state.profilePage.posts.push(newPost);
-        this._state.profilePage.newPostText = '';
-        this._callSubscriber(this._state);
-    },
-    _updateNewPostText (newText: any) {
-        this._state.profilePage.newPostText = action.newText;
-        this._callSubscriber(this._state);
-    },
     dispatch(action) {
         if (action.type === 'ADD-POST') {
             let newPost: PostType = {
@@ -101,7 +87,15 @@ let store = {
     }
 }
 
+export const addPostActionCreator = () => {
+    return {
+        type: 'ADD-POST'
+    }
+}
 
+export const updateNewPostTextActionCreator = (text) => {
+    return { type: 'UPDATE-NEW-POST-TEXT', newText: text }
+}
 
 export default state;
 window.store = store;
