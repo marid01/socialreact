@@ -4,7 +4,7 @@ function ProfileInfo(props: any) {
     return (
         <div>
            <div>
-               <img src="https://vjoy.cc/wp-content/uploads/2019/07/1-1.jpg"/>
+               <img src="https://3dnews.ru/assets/external/illustrations/2019/12/04/999060/dims%20(3).jpg"/>
            </div>
             <div>
                 ava + description
