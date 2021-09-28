@@ -1,58 +1,39 @@
-import React from 'react';
-import Post from "../Post";
-import {PostType} from "../../../redux/state";
+import React, { ChangeEvent } from "react";
+import classes from "./MyPosts.module.css";
+import { Post, PostPropsType as PostType } from "./Post/Post";
 
-type PropsType = {
-    posts: Array<PostType>
-    addPost: (message: string) => void
-}
+type MyPostsPropsType = {
+  posts: Array<PostType>;
+  newPostText: string;
+  updateNewPostText: (inputPostText: string) => void;
+  addPost: () => void;
+};
 
-let addPostActionCreator = () => {
-    return {
-        type: 'ADD-POST'
-    }
-}
+export const MyPosts = (props: MyPostsPropsType) => {
+  const postsElements = props.posts.map((post) => (
+    <Post postText={post.postText} likesCount={post.likesCount} id={post.id} />
+  ));
 
-let updateNewPostTextActionCreator = (text) => {
-    return { type: 'UPDATE-NEW-POST-TEXT', newText: text }
-}
+  const onPostAdding = () => {
+    props.addPost();
+  };
 
+  const onPostChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    props.updateNewPostText(event.currentTarget.value);
+  };
 
-function MyPosts(props: PropsType) {
-
-    let postsElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
-
-    let newPostElement = React.createRef<HTMLTextAreaElement>();
-
-    let addPost = () => {
-        props.dispatch(addPostActionCreator());
-    }
-
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        let action = updateNewPostTextActionCreator(text);
-        props.dispatch(action);
-    }
-
-    return (
+  return (
+    <div className={classes.postsBlock}>
+      <h3>My posts</h3>
+      <div>
         <div>
-            <h3>My posts</h3>
-            <div>
-                <div>
-                    <textarea onChange={onPostChange}
-                              ref={newPostElement}
-                              value={props.newPostText}
-                    />
-                </div>
-                <div>
-                    <button onClick={addPost}>Add post</button>
-                </div>
-            </div>
-            <div>
-                {postsElements}
-            </div>
+          <textarea value={props.newPostText} onChange={onPostChange} />
         </div>
-    )
-}
-
-export default MyPosts
+        <div>
+          <button onClick={onPostAdding}>Add post</button>
+        </div>
+      </div>
+      <div className={classes.posts}>{postsElements}</div>
+    </div>
+  );
+};

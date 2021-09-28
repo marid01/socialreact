@@ -1,43 +1,20 @@
-import React from 'react';
-import './App.css';
-import Header from "./components/Header/Header";
-import Nav from "./components/Navbar/Navbar";
-import Dialogs from "./components/Dialogs/Dialogs";
-import {BrowserRouter, Route} from 'react-router-dom';
-import Profile from "./components/Profile/Profile";
-import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
+import React from "react";
+import { Route } from "react-router-dom";
+import "./App.css";
+import { Header } from "./components/Header/Header";
+import { Navbar } from "./components/Navbar/Navbar";
+import { DialoguesContainer } from "./components/Dialogues/DialoguesContainer";
+import { Profile } from "./components/Profile/Profile";
 
-import {RootStateType} from './redux/state';
-
-type PropsType = {
-    state: RootStateType
-    addPost: (message: string) => void
+export function App() {
+  return (
+    <div className={"app-wrapper"}>
+      <Header />
+      <Navbar />
+      <div className={"app-wrapper-content"}>
+        <Route path={"/profile"} render={() => <Profile />} />
+        <Route path={"/dialogues"} render={() => <DialoguesContainer />} />
+      </div>
+    </div>
+  );
 }
-
-function App(props: PropsType) {
-    return (
-        <BrowserRouter>
-            <div className="app-wrapper">
-                <Header/>
-                <div className="con">
-                    <Nav/>
-                    <div className='app-wrapper-content'>
-                        <Route path={"/dialogs"}
-                               render={() => <Dialogs state={props.state.dialogsPage}/>}/>
-                        <Route path={"/profile"} render={() => <Profile
-                            profilePage={props.state.profilePage}
-                            dispatch={props.dispatch}
-                        />}/>
-                        <Route path={"/news"} render={() => <News/>}/>
-                        <Route path={"/music"} render={() => <Music/>}/>
-                        <Route path={"/settings"} render={() => <Settings/>}/>
-                    </div>
-                </div>
-            </div>
-        </BrowserRouter>
-    );
-}
-
-export default App;

@@ -1,19 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import store, { RootStateType } from './redux/state';
-import './index.css';
-import App from './App';
-import {BrowserRouter} from "react-router-dom";
+import React from "react";
+import "./index.css";
+import { reduxStore } from "./redux/redux-store";
+import ReactDOM from "react-dom";
+import { App } from "./App";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "./redux/StoreContext";
 
-let rerenderEntireTree = (state: RootStateType) => {
-    ReactDOM.render(
-        <BrowserRouter><App
-            state={state}
-            dispatch={store.dispatch.bind(store)}
-        /></BrowserRouter>
-        , document.getElementById('root')
-    );
-}
+const renderApp = () => {
+  ReactDOM.render(
+    <BrowserRouter>
+      <Provider store={reduxStore}>
+        <App />
+      </Provider>
+    </BrowserRouter>,
+    document.getElementById("root")
+  );
+};
 
-rerenderEntireTree(store.getState());
-store.subscribe(rerenderEntireTree)
+reduxStore.subscribe(renderApp); // Redux's reduxStore doesn't pass state to _callSubscriber() function on its call
+
+renderApp();

@@ -1,17 +1,16 @@
+import React from "react";
+import classes from "./ProfileInfo.module.css";
 
-
-function ProfileInfo(props: any) {
-    return (
-        <div>
-           <div>
-               <img src="https://3dnews.ru/assets/external/illustrations/2019/12/04/999060/dims%20(3).jpg"/>
-           </div>
-            <div>
-                ava + description
-
-            </div>
-        </div>
-    )
-}
-
-export default ProfileInfo
+export const ProfileInfo = () => {
+  return (
+    <div>
+      <div>
+        <img
+          src={"https://eskipaper.com/images/coastal-background-1.jpg"}
+          alt={"background"}
+        />
+      </div>
+      <div className={classes.descriptionBlock}>Ava + description</div>
+    </div>
+  );
+};
